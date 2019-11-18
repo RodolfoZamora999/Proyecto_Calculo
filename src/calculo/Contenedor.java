@@ -1,14 +1,14 @@
 package calculo;
 
+import javax.swing.JFrame;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import javax.swing.JFrame;
 
 /**
  * JFrame que contine toda la parte visual del programa
  * @author rodol
  */
-public class Contenedor extends javax.swing.JFrame
+public class Contenedor extends JFrame
 {
     private Panel_Principal panel;
             

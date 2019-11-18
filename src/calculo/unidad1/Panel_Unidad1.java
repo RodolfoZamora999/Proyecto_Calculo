@@ -21,13 +21,17 @@ public class Panel_Unidad1 extends JPanel
     
     public Panel_Unidad1(JFrame contenedor)
     {
+        super();
         this.contenedor = contenedor;
         initComponents();
     }
     
-    //Inicializa los componentes necesarios para la clase.
+    /**
+     * Inicializa los componentes necesarios para la clase.
+     */
     private void initComponents()
     {
+        //Propiedades del panel.
         this.setBackground(new Color(40, 40, 40));
         this.setLocation(0,0);
         this.setSize(1100,800);
@@ -158,8 +162,8 @@ public class Panel_Unidad1 extends JPanel
         
         //Botón que tienen como acción regresar al panel anterior.
         this.btnRegresar = new JButton();
-        this.btnRegresar.setSize(250,100);
-        this.btnRegresar.setLocation(this.getWidth()-300, this.getHeight()-150);
+        this.btnRegresar.setSize(125, 50);
+        this.btnRegresar.setLocation(this.getWidth()-150, this.getHeight()-100);
         this.btnRegresar.setBackground(new Color(34,73,162));
         this.btnRegresar.setText("Regresar");
         this.btnRegresar.setForeground(Color.WHITE);
