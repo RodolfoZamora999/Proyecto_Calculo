@@ -219,25 +219,32 @@ public class Panel_Unidades extends JPanel
         {
             Thread thread = new Thread(()->
             {
-                try
+                synchronized(this)
                 {
-                    for (int i = 0; i < 175; i++)
+                    try
+                    { 
+                       if(this.lblUnidad1.getX() != 30)
+                       {
+                            for (int i = 0; i < 175; i++)
+                            {
+                                this.lblUnidad1.setLocation(this.lblUnidad1.getLocation().x + 2, this.lblUnidad1.getLocation().y);
+                                this.lblUnidad2.setLocation(this.lblUnidad2.getLocation().x + 2, this.lblUnidad2.getLocation().y);
+                                this.lblUnidad3.setLocation(this.lblUnidad3.getLocation().x + 2, this.lblUnidad3.getLocation().y);
+                                this.lblUnidad4.setLocation(this.lblUnidad4.getLocation().x + 2, this.lblUnidad4.getLocation().y);
+                                this.lblUnidad5.setLocation(this.lblUnidad5.getLocation().x + 2, this.lblUnidad5.getLocation().y);
+                        
+                                //Usar Thread.sleep dentro de un ciclo es una mala practica.
+                                Thread.sleep(1);
+                            }
+                       }
+                    }
+                    catch (InterruptedException ex)
                     {
-                        this.lblUnidad1.setLocation(this.lblUnidad1.getLocation().x + 2, this.lblUnidad1.getLocation().y);
-                        this.lblUnidad2.setLocation(this.lblUnidad2.getLocation().x + 2, this.lblUnidad2.getLocation().y);
-                        this.lblUnidad3.setLocation(this.lblUnidad3.getLocation().x + 2, this.lblUnidad3.getLocation().y);
-                        this.lblUnidad4.setLocation(this.lblUnidad4.getLocation().x + 2, this.lblUnidad4.getLocation().y);
-                        this.lblUnidad5.setLocation(this.lblUnidad5.getLocation().x + 2, this.lblUnidad5.getLocation().y);
-                       
-                        //Nota: Esto se tiene que corregir.
-                        Thread.sleep(1);
-                    }     
+                        System.out.println("Houston, tenemos un problema.");
+                        System.err.println(ex.toString());
+                    }
                 }
-                catch (InterruptedException ex)
-                {
-                    System.out.println("Houston, tenemos un problema.");
-                    System.err.println(ex.toString());
-                }
+                
             });
             
             thread.start();
@@ -256,24 +263,30 @@ public class Panel_Unidades extends JPanel
         {
             Thread thread = new Thread(()->
             {
-                try
+                synchronized(this)
                 {
-                    for (int i = 0; i < 175; i++)
+                    try
                     {
-                        this.lblUnidad1.setLocation(this.lblUnidad1.getLocation().x - 2, this.lblUnidad1.getLocation().y);
-                        this.lblUnidad2.setLocation(this.lblUnidad2.getLocation().x - 2, this.lblUnidad2.getLocation().y);
-                        this.lblUnidad3.setLocation(this.lblUnidad3.getLocation().x - 2, this.lblUnidad3.getLocation().y);
-                        this.lblUnidad4.setLocation(this.lblUnidad4.getLocation().x - 2, this.lblUnidad4.getLocation().y);
-                        this.lblUnidad5.setLocation(this.lblUnidad5.getLocation().x - 2, this.lblUnidad5.getLocation().y);
+                        if(this.lblUnidad5.getX() != 740)
+                        {
+                            for (int i = 0; i < 175; i++)
+                            {
+                                this.lblUnidad1.setLocation(this.lblUnidad1.getLocation().x - 2, this.lblUnidad1.getLocation().y);
+                                this.lblUnidad2.setLocation(this.lblUnidad2.getLocation().x - 2, this.lblUnidad2.getLocation().y);
+                                this.lblUnidad3.setLocation(this.lblUnidad3.getLocation().x - 2, this.lblUnidad3.getLocation().y);
+                                this.lblUnidad4.setLocation(this.lblUnidad4.getLocation().x - 2, this.lblUnidad4.getLocation().y);
+                                this.lblUnidad5.setLocation(this.lblUnidad5.getLocation().x - 2, this.lblUnidad5.getLocation().y);
                         
-                        //Nota: Esto se tiene que corregir.
-                        Thread.sleep(1);   
+                                //Usar Thread.sleep dentro de un ciclo es una mala practica.
+                                Thread.sleep(1);    
+                            }
+                        }
                     }
-                }
-                catch (InterruptedException ex)
-                {
-                    System.out.println("Houston, tenemos un problema.");
-                    System.err.println(ex.toString());
+                    catch (InterruptedException ex)
+                    {
+                        System.out.println("Houston, tenemos un problema.");
+                        System.err.println(ex.toString());
+                    }
                 }
             });
             

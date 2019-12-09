@@ -15,7 +15,7 @@ public class Panel_Unidad1 extends JPanel
 {
     private final JFrame contenedor;
     private JLabel lblMensaje, lblInstruccion, lblValor, lblLeyenda;
-    private JSlider sliderX, sliderY, sliderZ;
+    private JSlider sliderI, sliderJ, sliderK;
     private JButton btnRegresar;
     private Graficacion graficacion;
     
@@ -46,9 +46,7 @@ public class Panel_Unidad1 extends JPanel
                 + " orientado que tiene su origen en un punto y "
                 + "su extremo en el otro. Una de las formas de "
                 + "representarlo es en un espacio tridimensional, "
-                + "el cual está conformado por 3 ejes, siendo X "
-                + "(ancho), Y (altura) y Z (profundidad). "
-                + "A continuación, se muestra un ejemplo interactivo."
+                + "el cual se representa como i, j y k"
                 + "</html>");
         this.lblMensaje.setFont(new Font("Tahoma", Font.PLAIN, 20));
         this.lblMensaje.setForeground(Color.WHITE);
@@ -72,83 +70,83 @@ public class Panel_Unidad1 extends JPanel
         this.lblValor.setSize(350, 100);
         this.lblValor.setLocation(700, 530);
         this.lblValor.setText("<html><b>Posición actual:</b><br>"
-                + "<b>X:</b>0<br>"
-                + " <b>Y:</b>0<br>"
-                + "<b>Z:</b>0</html>");
+                + "<b>i:</b>0<br>"
+                + " <b>j:</b>0<br>"
+                + "<b>k:</b>0</html>");
         this.lblValor.setFont(new Font("Arial", Font.PLAIN, 24));
         this.lblValor.setForeground(Color.WHITE);
         
         //Controles para poder interactuar con el espacio de graficación.
-        this.sliderX = new JSlider();
-        this.sliderX.setLocation(700,300);
-        this.sliderX.setSize(300,50);
-        this.sliderX.setMaximum(15);
-        this.sliderX.setMinimum(-15);
-        this.sliderX.setValue(0);
-        this.sliderX.setOpaque(false);
-        this.sliderX.setPaintLabels(true);
-        this.sliderX.setPaintTicks(true);
-        this.sliderX.setPaintTrack(true);
-        this.sliderX.setMajorTickSpacing(30); 
-        this.sliderX.setMinorTickSpacing(1); 
-        this.sliderX.setForeground(Color.WHITE);
-        this.sliderX.addChangeListener((e) ->
+        this.sliderJ = new JSlider();
+        this.sliderJ.setLocation(700,380);
+        this.sliderJ.setSize(300,50);
+        this.sliderJ.setMaximum(15);
+        this.sliderJ.setMinimum(-15);
+        this.sliderJ.setValue(0);
+        this.sliderJ.setOpaque(false);
+        this.sliderJ.setPaintLabels(true);
+        this.sliderJ.setPaintTicks(true);
+        this.sliderJ.setPaintTrack(true);
+        this.sliderJ.setMajorTickSpacing(30); 
+        this.sliderJ.setMinorTickSpacing(1); 
+        this.sliderJ.setForeground(Color.WHITE);
+        this.sliderJ.addChangeListener((e) ->
         {
-            this.graficacion.updateCoordinates(this.sliderX.getValue(), this.sliderY.getValue(), 
-                    this.sliderZ.getValue());
+            this.graficacion.updateCoordinates(this.sliderJ.getValue(), this.sliderK.getValue(), 
+                    this.sliderI.getValue());
             
             this.lblValor.setText("<html><b>Posición actual:</b><br>"
-                + "<b>X:</b>"+this.sliderX.getValue()+"<br>"
-                + " <b>Y:</b>"+this.sliderY.getValue()+"<br>"
-                + "<b>Z:</b>"+this.sliderZ.getValue()+"</html>");
+                + "<b>i:</b>"+this.sliderI.getValue()+"<br>"
+                + " <b>j:</b>"+this.sliderJ.getValue()+"<br>"
+                + "<b>k:</b>"+this.sliderK.getValue()+"</html>");
         });
         
-        this.sliderY = new JSlider();
-        this.sliderY.setLocation(700,380);
-        this.sliderY.setSize(300,50);
-        this.sliderY.setMaximum(15);
-        this.sliderY.setMinimum(-15);
-        this.sliderY.setValue(0);
-        this.sliderY.setOpaque(false);
-        this.sliderY.setPaintLabels(true);
-        this.sliderY.setPaintTicks(true);
-        this.sliderY.setPaintTrack(true); 
-        this.sliderY.setMajorTickSpacing(30); 
-        this.sliderY.setMinorTickSpacing(1); 
-        this.sliderY.setForeground(Color.WHITE);
-        this.sliderY.addChangeListener((e) ->
+        this.sliderK = new JSlider();
+        this.sliderK.setLocation(700,460);
+        this.sliderK.setSize(300,50);
+        this.sliderK.setMaximum(15);
+        this.sliderK.setMinimum(-15);
+        this.sliderK.setValue(0);
+        this.sliderK.setOpaque(false);
+        this.sliderK.setPaintLabels(true);
+        this.sliderK.setPaintTicks(true);
+        this.sliderK.setPaintTrack(true); 
+        this.sliderK.setMajorTickSpacing(30); 
+        this.sliderK.setMinorTickSpacing(1); 
+        this.sliderK.setForeground(Color.WHITE);
+        this.sliderK.addChangeListener((e) ->
         {
-            this.graficacion.updateCoordinates(this.sliderX.getValue(), this.sliderY.getValue(), 
-                    this.sliderZ.getValue());
+            this.graficacion.updateCoordinates(this.sliderJ.getValue(), this.sliderK.getValue(), 
+                    this.sliderI.getValue());
             
             this.lblValor.setText("<html><b>Posición actual:</b><br>"
-                + "<b>X:</b>"+this.sliderX.getValue()+"<br>"
-                + " <b>Y:</b>"+this.sliderY.getValue()+"<br>"
-                + "<b>Z:</b>"+this.sliderZ.getValue()+"</html>");
+                + "<b>i:</b>"+this.sliderI.getValue()+"<br>"
+                + " <b>j:</b>"+this.sliderJ.getValue()+"<br>"
+                + "<b>k:</b>"+this.sliderK.getValue()+"</html>");
         });
         
-        this.sliderZ = new JSlider();
-        this.sliderZ.setLocation(700,460);
-        this.sliderZ.setSize(300,50);
-        this.sliderZ.setMaximum(15);
-        this.sliderZ.setMinimum(-15);
-        this.sliderZ.setValue(0);
-        this.sliderZ.setOpaque(false);
-        this.sliderZ.setPaintLabels(true);
-        this.sliderZ.setPaintTicks(true);
-        this.sliderZ.setPaintTrack(true); 
-        this.sliderZ.setMajorTickSpacing(30); 
-        this.sliderZ.setMinorTickSpacing(1); 
-        this.sliderZ.setForeground(Color.WHITE);
-        this.sliderZ.addChangeListener((e) ->
+        this.sliderI = new JSlider();
+        this.sliderI.setLocation(700,300);
+        this.sliderI.setSize(300,50);
+        this.sliderI.setMaximum(15);
+        this.sliderI.setMinimum(-15);
+        this.sliderI.setValue(0);
+        this.sliderI.setOpaque(false);
+        this.sliderI.setPaintLabels(true);
+        this.sliderI.setPaintTicks(true);
+        this.sliderI.setPaintTrack(true); 
+        this.sliderI.setMajorTickSpacing(30); 
+        this.sliderI.setMinorTickSpacing(1); 
+        this.sliderI.setForeground(Color.WHITE);
+        this.sliderI.addChangeListener((e) ->
         {
-            this.graficacion.updateCoordinates(this.sliderX.getValue(), this.sliderY.getValue(),
-                    this.sliderZ.getValue());
+            this.graficacion.updateCoordinates(this.sliderJ.getValue(), this.sliderK.getValue(),
+                    this.sliderI.getValue());
                         
             this.lblValor.setText("<html><b>Posición actual:</b><br>"
-                + "<b>X:</b>"+this.sliderX.getValue()+"<br>"
-                + " <b>Y:</b>"+this.sliderY.getValue()+"<br>"
-                + "<b>Z:</b>"+this.sliderZ.getValue()+"</html>");
+                + "<b>i:</b>"+this.sliderI.getValue()+"<br>"
+                + " <b>j:</b>"+this.sliderJ.getValue()+"<br>"
+                + "<b>k:</b>"+this.sliderK.getValue()+"</html>");
         });
         
         
@@ -156,7 +154,7 @@ public class Panel_Unidad1 extends JPanel
         this.lblLeyenda = new JLabel();
         this.lblLeyenda.setSize(50, 210);
         this.lblLeyenda.setLocation(650, 280);
-        this.lblLeyenda.setText("<html><b>X</b><br><br><b>Y</b><br><br><b>Z</b></html>");
+        this.lblLeyenda.setText("<html><b>i</b><br><br><b>j</b><br><br><b>k</b></html>");
         this.lblLeyenda.setFont(new Font("Tahoma", Font.PLAIN, 36));
         this.lblLeyenda.setForeground(Color.WHITE);
         
@@ -182,9 +180,9 @@ public class Panel_Unidad1 extends JPanel
         this.add(this.lblMensaje);
         this.add(this.lblInstruccion);
         this.add(this.graficacion);
-        this.add(sliderX);
-        this.add(this.sliderY);
-        this.add(this.sliderZ);
+        this.add(sliderJ);
+        this.add(this.sliderK);
+        this.add(this.sliderI);
         this.add(this.lblValor);
         this.add(this.lblLeyenda);
         this.add(this.btnRegresar);

@@ -58,7 +58,7 @@ class Simulacion
             t += 0.1;  
             
             //Esto se tiene que corregir
-            Thread.sleep(18);    
+            Thread.sleep(18);
             
         } while ((posicionY - nuevaY) <= posicionY);
         

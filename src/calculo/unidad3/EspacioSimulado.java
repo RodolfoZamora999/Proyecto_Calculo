@@ -12,9 +12,12 @@ import javax.swing.*;
  */
 public class EspacioSimulado extends JPanel
 {
-    public EspacioSimulado()
+    private final JComponent context;
+    
+    public EspacioSimulado(JComponent context)
     {
         super();
+        this.context = context;
         initComponents();
     }
     
@@ -25,8 +28,7 @@ public class EspacioSimulado extends JPanel
     {
         //Propiedades del objeto
         this.setBackground(Color.WHITE);
-        this.setLayout(null);
-        
+        this.setLayout(null);  
     }
 
     /**
@@ -36,21 +38,21 @@ public class EspacioSimulado extends JPanel
     @Override
     public void paint(Graphics g) 
     {
-        super.paint(g); 
+        super.paint(g);
         
         Graphics2D graphics = (Graphics2D)g;
+        
         graphics.setStroke(new BasicStroke(1));
         
-        //Creación de la cuadrícula del espacio.
+        if(((Panel_Unidad3)this.context).getIndexCombo() != 0)
+            graphics.setColor(new Color(255, 255, 255, 40));
+        else
+            graphics.setColor(new Color(0, 0, 0, 40));
+              
         for (int i = 0; i < this.getSize().width; i+= 50)
-            graphics.drawLine(i, 0, i, this.getSize().height); 
-        
+            graphics.drawLine(i, 0, i, this.getSize().height);
         for (int i = 0; i < this.getSize().height; i+= 50)
             graphics.drawLine(0, i, this.getSize().width, i); 
-
-        graphics.setStroke(new BasicStroke(5));
-        graphics.setColor(new Color(0, 0, 255, 150));
-        
     }
     
 }
